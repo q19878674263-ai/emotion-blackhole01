@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>气球解决方案 - 让烦恼飞走</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <h1 class="title">🎈 让烦恼飞走</h1>
+        <button class="settings-btn" id="settingsBtn">⚙️ 设置</button>
+    </header>
+
+    <!-- 角色选择界面 -->
+    <div class="character-selection" id="characterSelection">
+        <div class="selection-container">
+            <h2>选择一个可爱的角色陪伴你</h2>
+            <div class="characters-grid">
+                <div class="character-card" data-character="rabbit">
+                    <div class="character-icon">🐰</div>
+                    <div class="character-name">小兔子</div>
+                </div>
+                <div class="character-card" data-character="cat">
+                    <div class="character-icon">🐱</div>
+                    <div class="character-name">小猫</div>
+                </div>
+                <div class="character-card" data-character="bear">
+                    <div class="character-icon">🐻</div>
+                    <div class="character-name">小熊</div>
+                </div>
+                <div class="character-card" data-character="deer">
+                    <div class="character-icon">🦌</div>
+                    <div class="character-name">小鹿</div>
+                </div>
+                <div class="character-card" data-character="fox">
+                    <div class="character-icon">🦊</div>
+                    <div class="character-name">小狐狸</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <main class="main-content" id="mainContent" style="display: none;">
+        <!-- 角色展示区域 -->
+        <div class="character-display-area">
+            <div class="character-holder" id="characterHolder">
+                <div class="character-avatar" id="characterAvatar"></div>
+                <canvas id="balloonCanvas"></canvas>
+            </div>
+        </div>
+
+        <!-- 输入和对话区域 -->
+        <div class="input-section">
+            <div class="conversation-queue" id="conversationQueue">
+                <h3>对话记录</h3>
+                <div class="conversation-list" id="conversationList"></div>
+            </div>
+            
+            <div class="input-container">
+                <textarea 
+                    id="problemInput" 
+                    placeholder="告诉我你最近遇到的烦闷事情..."
+                    rows="3"
+                ></textarea>
+                <button class="submit-btn" id="submitBtn">发送</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 设置面板 -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>⚙️ API 配置</h2>
+                <button class="close-btn" id="closeSettingsBtn">✕</button>
+            </div>
+            <div class="settings-body">
+                <div class="form-group">
+                    <label for="apiUrl">API 地址</label>
+                    <input type="text" id="apiUrl" placeholder="https://api.example.com">
+                </div>
+                <div class="form-group">
+                    <label for="apiKey">API 密钥</label>
+                    <input type="password" id="apiKey" placeholder="输入你的 API 密钥">
+                </div>
+                <div class="form-group">
+                    <label for="modelName">模型名称</label>
+                    <input type="text" id="modelName" placeholder="例如: glm-4">
+                </div>
+                <button class="save-btn" id="saveConfigBtn">保存配置</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载提示 -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>正在生成解决方案...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
